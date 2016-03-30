@@ -38,7 +38,6 @@
   <div>
     <%= f.label :image %><br>
     <%= f.file_field :image %>
-    <!--doesnt work yet -->
     <% if f.object.image? %>
       <%= image_tag f.object.image.thumb.url %>
       <%= f.label :remove_image %>

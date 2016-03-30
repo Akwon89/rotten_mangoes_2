@@ -30,6 +30,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
 
     if @movie.update_attributes(movie_params)
+      if params[:movie][:remove_image] == "1"
+        @movie.update_column(:image,nil)
+        ##removes image if checked, but still leaves it in the database/folder...###
+      end
       redirect_to movies_path(@movie)
     else
       render :edit
