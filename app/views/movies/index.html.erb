@@ -1,5 +1,23 @@
 <h1>Rotten Mangoes</h1>
+
 <%= link_to "Submit a movie!", new_movie_path %>
+
+<%= form_tag({controller: "movies", action: "index"}, method: "get") do %>
+  <%= label_tag(:query, "Search movie by:") %>
+  Title: <%= text_field_tag(:query_title) %>&nbsp <br>
+
+  Director: <%= text_field_tag(:query_director) %> <br>
+
+  Duration:  <select  <%= text_field_tag(:query_minutes) %> >
+              <option value="nil">N/A</option>
+              <option value="1">Under 90 minutes</option>
+              <option value="2">Between 90 and 120 minutes</option>
+              <option value="3">Over 120 minutes</option>
+            </select> <br>
+
+  <%= submit_tag("Search") %>
+<% end %>
+
 <hr>
 <% @movies.each do |movie| %>
   <%= link_to image_tag movie.image.thumb.url %>
@@ -11,3 +29,4 @@
   <p><%= movie.review_average %>/10</p>
   <hr>
 <% end %>
+
