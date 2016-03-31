@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::AdminController
   # before_action :admin_only
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(2)
   end
 
   def new
