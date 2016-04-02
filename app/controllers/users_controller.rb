@@ -26,6 +26,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # def destroy
+  #   UserMailer.delete_email(@user).deliver_now
+
+  #   format.html { redirect_to(@user, notice: 'User was succesfully deleted') }
+  #   format.json { render json: @user, status: :created, location: @user }
+  #   redirect_to movies_path, notice: "Adios!"
+  #   return
+  # end
+
   protected
 
   def user_params
